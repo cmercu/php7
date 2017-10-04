@@ -72,6 +72,7 @@ function TextToImage_my(
         return (is_null($length) === true) ? substr_replace($string, $replacement, $start) : substr_replace($string, $replacement, $start, $length);
       }
     }
-TextToImage_my( $text='Helloooo! my unicode words:  ǩ Ƥ Ў  ض ط  Ⴓ ');
+
+TextToImage_my($_GET['text']);
 
 ?>

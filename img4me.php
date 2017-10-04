@@ -14,6 +14,7 @@ imagefilledrectangle($im, 0, 0, 399, 29, $white);
 // The text to draw
 $text = 'Testing...';
 // Replace path by your own font path
+putenv('GDFONTPATH=' . realpath('.'));
 $font = 'arial.ttf';
 
 // Add some shadow to the text

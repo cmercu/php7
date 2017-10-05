@@ -3,27 +3,28 @@ function TextToImage_my(
   $text, 
   $separate_line_after_chars=40,  
   $font='./myfont.ttf', 
-  $size=24,
+  $size=14,
   $rotate=0,
   $padding=2,
-  $transparent=true, 
+  $transparent=false, 
   $color=array('red'=>0,'grn'=>0,'blu'=>0), 
   $bg_color=array('red'=>255,'grn'=>255,'blu'=>255) 
 ){
-    $amount_of_lines= ceil(strlen($text)/$separate_line_after_chars);
-    $x=explode("\n", $text); $final='';
+  $amount_of_lines= ceil(strlen($text)/$separate_line_after_chars);
+  $x=explode("\n", $text);
+  $final='';
     foreach($x as $key=>$value){
         $returnes='';
         do{ $first_part=mb_substr($value, 0, $separate_line_after_chars, 'utf-8');
             $value= "\n".mb_substr($value, $separate_line_after_chars, null, 'utf-8');
             $returnes .=$first_part;
-        }  while( mb_strlen($value,'utf-8')>$separate_line_after_chars);
+        } while(mb_strlen($value,'utf-8')>$separate_line_after_chars);
         $final .= $returnes."\n";
     }
     $text=$final;
     Header("Content-type: image/png");
     $width=$height=$offset_x=$offset_y = 0;
-    if(!is_file($font)) { file_put_contents($font,file_get_contents('https://github.com/edx/edx-certificates/raw/master/template_data/fonts/Arial%20Unicode.ttf')); }
+    if(!is_file($font)){file_put_contents($font,file_get_contents('https://github.com/edx/edx-certificates/raw/master/template_data/fonts/Arial%20Unicode.ttf'));}
 
     // get the font height.
     $bounds = ImageTTFBBox($size, $rotate, $font, "W");

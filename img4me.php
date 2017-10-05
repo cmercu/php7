@@ -25,7 +25,7 @@ function TextToImage_my(
     $text=$final;
     Header("Content-type: image/png");
     $width=$height=$offset_x=$offset_y = 0;
-    if(!is_file($font)){file_put_contents($font,file_get_contents('https://github.com/edx/edx-certificates/raw/master/template_data/fonts/Arial%20Unicode.ttf'));}
+    if(!is_file($font)){file_put_contents($font,file_get_contents('https://github.com/google/fonts/blob/master/apache/roboto/Roboto-Regular.ttf?raw=true'));}
 
     // get the font height.
     $bounds = ImageTTFBBox($size, $rotate, $font, "W");

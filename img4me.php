@@ -3,14 +3,14 @@ function TextToImage_my(
   $text, 
   $separate_line_after_chars=40,  
   $font='./myfont.ttf', 
-  $size=12,
+  $size=10,
   $rotate=0,
-  $padding=5,
+  $padding=20,
   $transparent=false, 
   $color=array('red'=>255,'grn'=>255,'blu'=>255), 
   $bg_color=array('red'=>27,'grn'=>40,'blu'=>54) 
 ){
-  $text = $text."\nby @cmercu";
+  $text = $text."\n\n     by @cmercu";
   $amount_of_lines= ceil(strlen($text)/$separate_line_after_chars);
   $x=explode("\n", $text);
   $final='';

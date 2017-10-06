@@ -1,7 +1,7 @@
 <?php
 function TextToImage_my(
   $text, 
-  $separate_line_after_chars=40,  
+  $separate_line_after_chars=60,  
   $font='./myfont.ttf', 
   $size=10,
   $rotate=0,
@@ -75,6 +75,5 @@ function TextToImage_my(
       }
     }
 
-TextToImage_my($_GET['text']);
-
+TextToImage_my(wordwrap($_GET['text'], 40, "\n", false));
 ?>
